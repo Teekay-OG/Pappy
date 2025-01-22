@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
 
 // Route to render form.html
 app.get('/form', (req, res) => {
-  res.sendFile(path.join(__dirname, 'https://remarkable-kheer-84f4a9.netlify.app/form'));
+  res.sendFile(path.join(__dirname, '/form.html'));
 });
 
 app.post('/submit', async (req, res) => {
