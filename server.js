@@ -41,16 +41,16 @@ async function connectToDatabase() {
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, 'app')));
+app.use(express.static(path.join(__dirname)));
 
 // Route to render index.html
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Route to render form.html
 app.get('/form', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '/form.html'));
+  res.sendFile(path.join(__dirname, 'form.html'));
 });
 
 app.post('/submit', async (req, res) => {
