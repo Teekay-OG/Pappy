@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
 
 // Route to render form.html
 app.get('/form', (req, res) => {
-  res.sendFile(path.join(__dirname, '/form.html'));
+  res.sendFile(path.resolve(__dirname, '/form.html'));
 });
 
 app.post('/submit', async (req, res) => {
