@@ -28,7 +28,7 @@ async function connectToDatabase() {
     // Connect the client to the server
     await client.connect();
     // Set the database to use
-    db = client.db('ussalih'); // Replace 'pappy' with your actual database name
+    db = client.db('ussalih'); // The actual database name
     console.log('Connected to MongoDB successfully!');
   } catch (err) {
     console.error('Failed to connect to MongoDB:', err);
@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
 
 // Route to render form.html
 app.get('/form', (req, res) => {
-  res.sendFile(path.join(__dirname, 'form.html'));
+  res.sendFile(path.join(__dirname, 'https://remarkable-kheer-84f4a9.netlify.app/form'));
 });
 
 app.post('/submit', async (req, res) => {
